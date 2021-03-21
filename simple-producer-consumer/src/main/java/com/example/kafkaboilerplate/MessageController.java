@@ -8,15 +8,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController("/kafka")
 public class MessageController {
 
-    private Producer producer;
+    private KafkaProducer kafkaProducer;
 
     @Autowired
-    public MessageController(Producer producer) {
-        this.producer = producer;
+    public MessageController(KafkaProducer kafkaProducer) {
+        this.kafkaProducer = kafkaProducer;
     }
 
     @PostMapping("publish")
     public void sendMessage(@RequestBody String message) {
-        producer.sendMessage(message);
+        kafkaProducer.sendMessage(message);
     }
 }

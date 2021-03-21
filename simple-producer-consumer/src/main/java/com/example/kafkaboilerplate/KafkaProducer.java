@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 @Slf4j
 @Service
-public class Producer {
+public class KafkaProducer {
 
     @Value("${test.topic}")
     private String topic;
@@ -16,7 +16,7 @@ public class Producer {
     private KafkaTemplate<String, String> kafkaTemplate;
 
     @Autowired
-    public Producer(KafkaTemplate<String, String> kafkaTemplate) {
+    public KafkaProducer(KafkaTemplate<String, String> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
 
